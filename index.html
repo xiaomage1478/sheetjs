@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- xlsx.js (C) 2013-present  SheetJS http://sheetjs.com -->
+<!-- vim: set ts=2: -->
+<html>
+  <head>
+    <title>预算查看</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="assets/css/sheetjs.css">
+  </head>
+  <body>
+    <script src="assets/vendor/alertify.js"></script>
+    <script src="assets/js/canvas-datagrid.js"></script>
+    <link rel="stylesheet" media="screen" href="assets/vendor/samples.css">
+
+    <div id="body">
+      <div id="left">
+
+      <h3> 请选择要查看的Sheet:</h3>
+      <div id="buttons"></div>
+    </div>
+    <div id="right">
+      <div id="header">
+        <pre id="out"></pre>
+        <h2>预算查看</h2>
+        <h3>
+          <div id="drop" style="width: 100%">Drop a file here</div>
+          <input type="file" id="file" value=""/><label for="file">... or click here to select a file</label>
+        </h3>
+
+      </div>
+      <div id="grid"></div>
+      <div id="footnote">
+11111111111
+      </div>
+    </div>
+    <script src="assets/js/xlsx.full.min.js"></script>
+    <script src="assets/js/dropsheet.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/vendor/spin.js"></script>
+  </body>
+</html>
