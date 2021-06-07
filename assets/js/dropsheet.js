@@ -127,6 +127,7 @@ var DropSheet = function DropSheet(opts) {
 
   function handleFile(e) {
     console.log("处理文件");
+    sheetjsw("data", process_wb, 'binary'); return;
     if (pending) return opts.errors.pending();
     var files = e.target.files;
     var i, f;
