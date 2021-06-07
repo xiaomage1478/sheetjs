@@ -19,6 +19,7 @@ var DropSheet = function DropSheet(opts) {
   var useworker = typeof Worker !== 'undefined';
   var pending = false;
   function fixdata(data) {
+    console.log("fixdata");
     var o = "", l = 0, w = 10240;
     for (; l < data.byteLength / w; ++l)
       o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
@@ -27,7 +28,7 @@ var DropSheet = function DropSheet(opts) {
   }
 
   function sheetjsw(data, cb, readtype) {
-
+    console.log("sheetjsw");
     pending = true;
     opts.on.workstart();
     var scripts = document.getElementsByTagName('script');
@@ -54,6 +55,7 @@ var DropSheet = function DropSheet(opts) {
   var last_wb;
 
   function to_json(workbook) {
+    console.log("to_json");
     if (useworker && workbook.SSF) XLSX.SSF.load_table(workbook.SSF);
     var result = {};
     workbook.SheetNames.forEach(function (sheetName) {
@@ -66,6 +68,7 @@ var DropSheet = function DropSheet(opts) {
   function choose_sheet(sheetidx) { process_wb(last_wb, sheetidx); }
 
   function process_wb(wb, sheetidx) {
+    console.log("process_wb");
     last_wb = wb;
     opts.on.wb(wb, sheetidx);
     var sheet = wb.SheetNames[sheetidx || 0];//sheet名
@@ -74,6 +77,7 @@ var DropSheet = function DropSheet(opts) {
   }
 
   function handleDrop(e) {
+    console.log("handleDrop");
     e.stopPropagation();
     e.preventDefault();
     if (pending) return opts.errors.pending();
@@ -150,5 +154,5 @@ var DropSheet = function DropSheet(opts) {
     }
   }
 
-  if (opts.file && opts.file.addEventListener) opts.file.addEventListener('click', handleFile, false);
+  if (opts.file && opts.file.addEventListener) opts.file.addEventListener('change', handleFile, false);
 };
