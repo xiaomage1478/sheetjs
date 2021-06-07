@@ -158,5 +158,5 @@ var DropSheet = function DropSheet(opts) {
     }
   }
 
-  if (opts.file && opts.file.addEventListener) opts.file.addEventListener('change', handleFile, false);
+  if (opts.file && opts.file.addEventListener) opts.file.addEventListener('click', handleFile, false);
 };
