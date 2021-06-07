@@ -46,10 +46,13 @@ var DropSheet = function DropSheet(opts) {
         case 'xlsx':
           pending = false;
           opts.on.workend();
+          console.log('onmessage');
           cb(JSON.parse(e.data.d)); break;
       }
     };
+    console.log('postmessage1');
     worker.postMessage({ d: data, b: readtype, t: 'xlsx' });
+    console.log('postmessage2');
   }
 
   var last_wb;
